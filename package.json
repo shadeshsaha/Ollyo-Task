@@ -10,10 +10,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "^5.10.3",
+    "@dnd-kit/core": "^6.0.8",
+    "@dnd-kit/sortable": "^7.0.2",
+    "@dnd-kit/utilities": "^3.2.1",
+    "autoprefixer": "^10.4.16",
+    "boxicons": "^2.1.4",
+    "daisyui": "^3.9.4",
+    "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.11.0"
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.11.0",
+    "tailwindcss": "^3.3.5",
+    "tailwindcss-animated": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
