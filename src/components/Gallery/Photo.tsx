@@ -1,15 +1,6 @@
 import React, { forwardRef, useState } from "react";
+import { PhotoProps } from "../../libs/interface";
 import { cn } from "../../libs/utils";
-
-interface PhotoProps {
-  url: string;
-  index: number;
-  faded?: boolean;
-  style?: React.CSSProperties;
-  className?: string;
-  selectedIds: string[];
-  setSelectedIds: React.Dispatch<React.SetStateAction<string[]>>;
-}
 
 const Photo: React.FC<PhotoProps> = forwardRef(
   (

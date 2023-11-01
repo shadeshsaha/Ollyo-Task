@@ -17,17 +17,13 @@ import {
   rectSortingStrategy,
 } from "@dnd-kit/sortable";
 import { useCallback, useState } from "react";
-
 import { CheckboxIcon, DeleteIcon, PlusFileIcon } from "../../components/Icons";
+import { GalleryProps } from "../../libs/interface";
 import Grid from "./Grid";
 import Photo from "./Photo";
 import SortablePhoto from "./SortablePhoto";
 
-interface GalleryProps {
-  items: string[];
-}
-
-const Gallery: React.FC<GalleryProps> = ({ items: ogItems }) => {
+const Gallery = ({ items: ogItems }: GalleryProps) => {
   const [items, setItems] = useState<string[]>(ogItems);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -73,7 +69,7 @@ const Gallery: React.FC<GalleryProps> = ({ items: ogItems }) => {
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg shadow my-10 space-y-2">
-      {/* Header */}
+      {/* Header Start */}
       <div className="flex flex-row justify-between items-center px-2 sm:px-3 md:px-4 lg:px-6 pt-6 py-3">
         <div className="text-base font-bold text-gray-900 md:text-lg">
           {selectedIds.length > 0 ? (
@@ -97,9 +93,11 @@ const Gallery: React.FC<GalleryProps> = ({ items: ogItems }) => {
           </button>
         )}
       </div>
+      {/* Header End */}
+
       <hr className="bg-gray-300 h-[2px]" />
       <div className="px-2 sm:px-3 md:px-4 lg:px-6 pb-6 py-3">
-        {/* Drag and Drop */}
+        {/* Drag and Drop Start */}
         <DndContext
           sensors={sensors}
           collisionDetection={closestCenter}
@@ -140,6 +138,7 @@ const Gallery: React.FC<GalleryProps> = ({ items: ogItems }) => {
             ) : null}
           </DragOverlay>
         </DndContext>
+        {/* Drag and Drop End */}
       </div>
     </div>
   );
