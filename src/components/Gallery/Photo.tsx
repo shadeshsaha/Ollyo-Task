@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { forwardRef, useState } from "react";
+import { cn } from "../../libs/utils";
 
 interface PhotoProps {
   url: string;
@@ -45,9 +45,25 @@ const Photo: React.FC<PhotoProps> = forwardRef(
           backgroundImage: faded ? undefined : `url("${url}")`,
           ...style,
         }}
+        className={cn(
+          "relative group border-[1px] border-gray-500 transform origin-[0_0] rounded-md h-[200px] bg-cover bg-center",
+          className,
+          {
+            "bg-white": isChecked,
+            "h-[420px] row-span-2 col-span-2": index === 0,
+          }
+        )}
       >
         {/* Works as drag handeler and hover overlay */}
-        <div {...props}></div>
+        <div
+          className={cn(
+            "absolute top-0 left-0 w-full h-full rounded-md group-hover:opacity-40 group-hover:bg-gray-900 transition-all duration-300",
+            {
+              "opacity-40 bg-white": isChecked,
+            }
+          )}
+          {...props}
+        ></div>
 
         {/* Checkbox */}
         {(faded !== undefined || isChecked) && (
@@ -55,6 +71,12 @@ const Photo: React.FC<PhotoProps> = forwardRef(
             type="checkbox"
             checked={isChecked}
             onChange={handleCheckboxChange}
+            className={cn(
+              "absolute group-hover:visible top-4 left-4 w-6 h-6 text-blue-600 bg-white border-gray-300 focus:ring-blue-500",
+              {
+                invisible: !isChecked,
+              }
+            )}
           />
         )}
       </div>
