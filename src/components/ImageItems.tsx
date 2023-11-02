@@ -12,7 +12,9 @@ import eight from "./../assets/images/image-8.webp";
 import nine from "./../assets/images/image-9.webp";
 import Gallery from "./Gallery";
 
+// ImageItems component to render a Gallery with a list of image items
 const ImageItems = () => {
+  // Define an array of image URLs
   const [items] = useState<string[]>([
     one,
     two,
@@ -26,8 +28,10 @@ const ImageItems = () => {
     ten,
     eleven,
   ]);
+
   return (
     <div>
+      {/* Render the Gallery component and pass the array of image URLs as items */}
       <Gallery items={items} />
     </div>
   );

@@ -24,14 +24,22 @@ import Photo from "./Photo";
 import SortablePhoto from "./SortablePhoto";
 
 const Gallery = ({ items: ogItems }: GalleryProps) => {
+  // State for items
   const [items, setItems] = useState<string[]>(ogItems);
+
+  // State for the active item during drag and drop
   const [activeId, setActiveId] = useState<string | null>(null);
+
+  // State for selected items
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  // Create sensors for mouse and touch interactions
   const sensors: SensorDescriptor<SensorOptions>[] = useSensors(
     useSensor(MouseSensor),
     useSensor(TouchSensor)
   );
 
+  // Callback for handling drag start
   const handleDragStart = useCallback(
     (event: DragStartEvent) => {
       setActiveId(event.active.id.toString());
@@ -39,6 +47,7 @@ const Gallery = ({ items: ogItems }: GalleryProps) => {
     [setActiveId]
   );
 
+  // Callback for handling drag end
   const handleDragEnd = useCallback(
     (event: DragEndEvent) => {
       const { active, over } = event;
@@ -58,10 +67,12 @@ const Gallery = ({ items: ogItems }: GalleryProps) => {
     [setItems]
   );
 
+  // Callback for handling drag cancel
   const handleDragCancel = useCallback(() => {
     setActiveId(null);
   }, []);
 
+  // Callback for removing multiple items
   const handleRemoveMultiple = useCallback(() => {
     setItems((items) => items.filter((item) => !selectedIds.includes(item)));
     setSelectedIds([]);

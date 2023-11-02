@@ -1,11 +1,12 @@
 import { IconSvgProps } from "../libs/interface";
 
-export const CheckboxIcon: React.FC<IconSvgProps> = ({
+// Checkbox Icon Component
+export const CheckboxIcon = ({
   size = 24,
   width,
   height,
   ...props
-}) => (
+}: IconSvgProps) => (
   <svg
     width={width || size}
     height={height || size}
@@ -22,12 +23,13 @@ export const CheckboxIcon: React.FC<IconSvgProps> = ({
   </svg>
 );
 
-export const DeleteIcon: React.FC<IconSvgProps> = ({
+// Delete Icon Component
+export const DeleteIcon = ({
   size = 24,
   width,
   height,
   ...props
-}) => (
+}: IconSvgProps) => (
   <svg
     width={width || size}
     height={height || size}
@@ -45,12 +47,13 @@ export const DeleteIcon: React.FC<IconSvgProps> = ({
   </svg>
 );
 
-export const PlusFileIcon: React.FC<IconSvgProps> = ({
+// Plus File Icon Component
+export const PlusFileIcon = ({
   size = 24,
   width,
   height,
   ...props
-}) => (
+}: IconSvgProps) => (
   <svg
     width={width || size}
     height={height || size}

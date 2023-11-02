@@ -16,8 +16,10 @@ const Photo: React.FC<PhotoProps> = forwardRef(
     },
     ref: React.ForwardedRef<HTMLDivElement>
   ) => {
+    // State to manage the checkbox state
     const [isChecked, setIsChecked] = useState(selectedIds?.includes(url));
 
+    // Function to handle checkbox change
     const handleCheckboxChange = () => {
       setIsChecked(!isChecked);
       setSelectedIds((selectedIds) => {
@@ -45,7 +47,7 @@ const Photo: React.FC<PhotoProps> = forwardRef(
           }
         )}
       >
-        {/* Works as drag handeler and hover overlay */}
+        {/* Works as a drag handler and hover overlay */}
         <div
           className={cn(
             "absolute top-0 left-0 w-full h-full rounded-md group-hover:opacity-40 group-hover:bg-gray-900 transition-all duration-300",
