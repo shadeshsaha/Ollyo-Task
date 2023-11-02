@@ -6,4 +6,4 @@
 
 ---
 
-- [Live Link]()
+- [Live Link](https://ollyo-task-psi.vercel.app/)
